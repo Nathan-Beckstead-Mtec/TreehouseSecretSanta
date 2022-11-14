@@ -1,10 +1,13 @@
-// let results = generate();
-let results = ["Teri","Julie","Gina","Christy","Ann","Paula"];
+// let results = ["Teri","Julie","Gina","Christy","Ann","Paula"];
 
-write(results);
+let year = (new Date).getFullYear();
+let results = generate(year);
 
 
-function write(results) {
+write(results,year);
+
+
+function write(results,year) {
     console.error(results);
 
 
@@ -22,4 +25,6 @@ function write(results) {
 
         container.appendChild(resultNODE);
     });
+
+    document.getElementById("year").textContent = year;
 }
