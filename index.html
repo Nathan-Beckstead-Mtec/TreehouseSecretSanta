@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, viewport-fit=cover">
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./ui.js"></script>
+    <script src="./moms Christmas randomizer.js"></script>
+    <script>
+        //stupid fix for iphone
+        let vh = window.innerHeight;
+        document.documentElement.style.setProperty('--phone-vh', `${vh}px`);
+
+        window.addEventListener('resize', () => {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--phone-vh', `${vh}px`);
+        });
+    </script>
+    <title>Secret Santa Results</title>
+</head>
+<body>
+    <div class="body">
+        <div class="title result">
+            <h1>The Results are in!</h1>
+        </div>
+        <div id="content" class="content">
+        </div>
+    </div>
+    
+</body>
+</html>

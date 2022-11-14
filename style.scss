@@ -1,0 +1,135 @@
+body {
+	background-color: #130d26 ;
+
+	/* background-image: url("./pexels-josh-hild-3229916.jpg"); */
+	// background-image: url("./pexels-yura-forrat-10437879.jpg");
+	// background-position-x: center;
+	// background-position-y: 0;
+	// background-repeat: no-repeat;
+	// background-size: cover;
+	// background-attachment:fixed;
+	/* background-size: contain; */
+	// height: 80vh;
+	// height: var("--iphone-vh",-webkit-fill-avalible);
+	// width: 100vw;
+	// box-sizing: border-box;
+
+	// overflow: hidden;
+	margin: 0;
+	padding: 0;
+
+	
+	// position: relative;
+}
+
+
+
+
+
+.content{
+	box-shadow: 0 0 3px 2px #29a633 ;
+	flex-basis: 70%;
+	width:70%;
+	margin-top: 4vh;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	row-gap: 1em;
+
+	overflow-y: scroll;
+	height: 60vh;
+}
+.content > .result{
+	flex-basis: 100%;
+	margin-left:1em;
+	margin-right: 1em;
+}
+.content > *:first-child{
+	margin-top: 1em;
+}
+.content > *:last-child{
+	margin-bottom: 5em;
+}
+
+
+
+
+
+
+.body{
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+
+
+
+.title{
+	margin-top: 5vh;
+	// width: 80vw;
+	width: 80%;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+
+.result {
+	padding: 2em 1.25em;
+	border-image-outset: 0;
+	border-image-repeat: round;
+	border-image-slice: 10;
+	border-image-width: 1em;
+	border-image-source: repeating-linear-gradient(135deg, rgba(255,48,48,1) 0.0em, rgba(255,48,48,1) 0.30em, rgba(204,38,38,0.8) 0.31em, rgba(204,38,38,0.8) 0.39em, rgba(255,255,255,1) 0.40em, rgba(255,255,255,1) 0.89em, rgba(255,48,48,1) 0.91em, rgba(255,48,48,1) 0.100em 1em);
+	// border-image-source: repeating-linear-gradient(45deg, transparent, #4d9f0c 20px);
+	box-shadow: inset 0 0 6px 1em #130d26 ;
+	background-color: #efb7a9;
+	// background-color: #ffb3bf ;
+
+	flex-shrink: 1;
+
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	p, h1{
+		margin:0;
+	}
+}
+
+
+
+
+
+.s{
+	--size: 1vw;
+	width: var(--size);
+	height: var(--size);
+	background: white;
+	border-radius: 50%;
+	position: absolute;
+	top: -5vh;
+	filter: blur(1px);
+	transform: scaleZ(0.3);
+}
+
+@keyframes snowfall {
+	0% {
+		transform: translate(var(--left-ini), 0);
+	}
+
+	100% {
+		transform: translate(var(--left-end), 110vh);
+	}
+}
+
+@for $i from 1 through 50 {
+	.s:nth-child(#{$i}) {
+		--size: #{random(8) * 0.05 + 0.1}em;
+		--left-ini: #{random(20) - 10}vw;
+		--left-end: #{random(20) - 10}vw;
+		left: #{random(100)}vw;
+		animation: snowfall #{5 + random(10)}s linear infinite;
+		animation-delay: -#{random(10)}s;
+	}
+}
