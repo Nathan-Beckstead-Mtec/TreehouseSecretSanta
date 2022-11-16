@@ -2,9 +2,13 @@
 
 let year = (new Date).getFullYear();
 let results = generate(year);
-
-
+if(year == 2022){
+    let ahem = document.getElementById("ahem")
+    ahem.innerHTML = "<i><b style='color:#36593b;'>*AHEM*</b> &mdash; Now</i>, t";
+    year = "2022[v2]  ";
+}
 write(results,year);
+
 
 
 function write(results,year) {
