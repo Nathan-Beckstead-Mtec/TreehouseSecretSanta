@@ -14,6 +14,7 @@ function generate(year) {
 		//values from random0
 		constructor(seed){
 			this.last = seed;
+			console.log(seed);
 			//burn a few
 			this.next();
 			this.next();
@@ -31,13 +32,11 @@ function generate(year) {
 			return now;
 		}
 	}
-	let seed = new Date(year,11,25);
-	seed.setUTCDate(25);
-	seed.setHours(4);
-	seed.setMinutes(20);
-	seed.setSeconds(6);
-	seed.setMilliseconds(9);
-	let rng = new prng(seed.getTime());
+	let seed = (year-2022 + 1) * 2946901 + 479001599
+	//this started as utc for (dec 25th 4:20:06:09 [year]) but that messes up per timezone
+	//so this is not actually utc but big-number-that-changes-per-year
+
+	let rng = new prng(seed);
 	let rands = [];
 	for (let i = 0; i < names.length; i++) {
 		rands[i]=rng.next();
@@ -94,7 +93,7 @@ function generate(year) {
 
 
 if (typeof window === "undefined"){ //if running in node
-	let year = 2035;
+	let year = 2022;
 	console.log(generate(year++));
 	console.log(generate(year++));
 	console.log(generate(year++));
